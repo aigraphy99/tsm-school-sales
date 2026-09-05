@@ -1,0 +1,10 @@
+{
+  "name": "Ai updated  School Sales OS - TSM CRM \u0026 Field Sales ERP",
+  "description": "Enterprise School Sales CRM, web research engine, territory pipeline, WhatsApp outreach, and 5-Day War Room for TSMs.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
