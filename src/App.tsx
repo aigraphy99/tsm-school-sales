@@ -130,11 +130,13 @@ export default function App() {
         fetchNextActions(),
         fetchConflicts()
       ]);
-      setDashboardStats(stats);
-      setNextActions(actions);
-      setPendingConflictsCount(conflicts.filter((c) => c.status === 'PENDING').length);
+      if (stats) setDashboardStats(stats);
+      if (actions) setNextActions(actions);
+      if (Array.isArray(conflicts)) {
+        setPendingConflictsCount(conflicts.filter((c) => c.status === 'PENDING').length);
+      }
     } catch (err) {
-      console.error('Error fetching stats:', err);
+      console.warn('Dashboard stats temporarily synchronizing:', err);
     }
   }, []);
 

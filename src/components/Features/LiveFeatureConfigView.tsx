@@ -39,7 +39,7 @@ export const LiveFeatureConfigView: React.FC = () => {
   // Form edit states
   const [tsmName, setTsmName] = useState<string>('');
   const [tsmPhone, setTsmPhone] = useState<string>('');
-  const [baseFee, setBaseFee] = useState<number>(150);
+  const [baseFee, setBaseFee] = useState<number>(200);
   const [retention, setRetention] = useState<number>(25);
   const [deadline, setDeadline] = useState<string>('');
   const [pitchAmountInTemplates, setPitchAmountInTemplates] = useState<boolean>(false);
@@ -61,9 +61,9 @@ export const LiveFeatureConfigView: React.FC = () => {
         setHistory(res.history || []);
         setTsmName(res.config.tsmName || 'Swapnil');
         setTsmPhone(res.config.tsmPhone || '+91 84481 99842');
-        setBaseFee(res.config.baseFee || 150);
+        setBaseFee(res.config.baseFee || 200);
         setRetention(res.config.schoolRetentionPerStudent || 25);
-        setDeadline(res.config.registrationDeadline || '30th / 31st September 2026');
+        setDeadline(res.config.registrationDeadline || '30th Sept 2026');
         setPitchAmountInTemplates(res.config.pitchAmountInTemplates ?? false);
       }
     } catch (err) {
@@ -263,7 +263,7 @@ export const LiveFeatureConfigView: React.FC = () => {
                   'Ensure retention is 25 per student',
                   'Update TSM phone to +91 84481 99842',
                   'Clean templates - do not pitch fee amount',
-                  'Extend deadline till 30th/31st September 2026',
+                  'Extend deadline till 30th Sept 2026',
                   'Revert last change'
                 ].map((preset) => (
                   <button
@@ -484,7 +484,7 @@ export const LiveFeatureConfigView: React.FC = () => {
                   <div className="text-[11px] text-amber-800">Includes Free 4-Item Art Kit for every child</div>
                 </div>
                 <div className="text-right font-mono">
-                  <div className="font-extrabold text-sm text-amber-950">₹175</div>
+                  <div className="font-extrabold text-sm text-amber-950">₹{config?.littleStarFee || 200}</div>
                   <div className="text-[11px] text-emerald-700 font-bold">+₹{retention} retained</div>
                 </div>
               </div>

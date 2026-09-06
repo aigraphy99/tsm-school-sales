@@ -53,33 +53,33 @@ export interface DatabaseSchema {
 const DEFAULT_TEMPLATES: MessageTemplate[] = [
   {
     id: 'tmpl-sz-ext-main',
-    name: 'SilverZone 2026-27 Brochure - Registration Extended (Till 30/31 Sept)',
+    name: 'SilverZone 2026-27 Brochure - Registration Extended (Till 30th Sept)',
     category: 'BROCHURE_EXTENSION',
-    content: 'Respected {{principal_name}}, Greetings from SilverZone Foundation (25th Silver Jubilee Year). We are pleased to share the official 2026-27 Olympiad Information Brochure for {{school_name}}.\n\n📢 IMPORTANT UPDATE: Registration deadline for all 12 Olympiads (Maths, Science, English, STEM, and new Artificial Intelligence Olympiad iAIO) has been officially EXTENDED TILL 30th/31st SEPTEMBER 2026!\n\n🌟 Key Highlights for {{school_name}}:\n• 12 Olympiads: Maths (iOM), Science (iOS), English (iOEL), STEM, Computer (iCSO), Talent Hunt (iTHO), Hindi (ABHO), Social Studies (iSSO), Reasoning (iRAO), GK (SKGKO), Commerce (iSCO) & AI (iAIO)\n• 1st Prize: ₹1,00,000 (Total awards worth ₹7.4 Crores!)\n• All Level 3 winners win an educational visit to ISRO & international study tours (NASA/UK)\n• No additional fee for Level 2 & Level 3\n• School retention allowance included for teacher in-charge honorarium & exam administration\n• RealMetrics™ comprehensive student benchmarking report for your school management\n\nView official 2026-27 syllabus, dates & prospectus: {{brochure_url}}\n\nCan our Territory Sales Manager {{tsm_name}} (+91 84481 99842) deliver physical registration forms and specimen workbooks to {{school_name}} this week?'
+    content: 'Respected {{principal_name}}, Greetings from SilverZone Foundation (25th Silver Jubilee Year). We are pleased to share the official 2026-27 Olympiad Information Brochure for {{school_name}}.\n\n📢 IMPORTANT UPDATE: Registration deadline for all 12 Olympiads (Maths, Science, English, STEM, and new Artificial Intelligence Olympiad iAIO) has been officially EXTENDED TILL 30th SEPTEMBER 2026!\n\n🌟 Key Highlights for {{school_name}}:\n• 12 Olympiads: Maths (iOM), Science (iOS), English (iOEL), STEM, Computer (iCSO), Talent Hunt (iTHO), Hindi (ABHO), Social Studies (iSSO), Reasoning (iRAO), GK (SKGKO), Commerce (iSCO) & AI (iAIO)\n• 1st Prize: ₹1,00,000 (Total awards worth ₹7.4 Crores!)\n• All Level 3 winners win an educational visit to ISRO & international study tours (NASA/UK)\n• No additional fee for Level 2 & Level 3\n• School retention allowance included for teacher in-charge honorarium & exam administration\n• RealMetrics™ comprehensive student benchmarking report for your school management\n\nView official 2026-27 syllabus, dates & prospectus: {{brochure_url}}\n\nCan our Territory Sales Manager {{tsm_name}} (+91 84481 99842) deliver physical registration forms and specimen workbooks to {{school_name}} this week?'
   },
   {
     id: 'tmpl-sz-ext-littlestar',
-    name: 'Little Star Olympiad (Nursery to UKG) - Extended to 30/31 Sept',
+    name: 'Little Star Olympiad (Nursery to UKG) - Extended to 30th Sept',
     category: 'LITTLE_STAR',
-    content: 'Dear {{coordinator_name}}, SilverZone Foundation announces the Little Star Olympiad 2026-27 for Nursery, LKG & UKG students at {{school_name}} (NEP 2020 ECCE aligned).\n\n⏰ DEADLINE EXTENSION: Registration date officially EXTENDED TILL 30th/31st SEPTEMBER 2026!\n\n🎨 Exciting Participant Benefits:\n• Subjects: Mathematics, English, EVS, Hindi & Drawing (*New)\n• 🎁 Free Sketch Pens, Wax Crayons, Colour Pencils & Creative Kit for EVERY participating child!\n• Participation certificate for all + Medals for class toppers (>50%) & Distinction gifts (>75%)\n• Teacher coordinator honorarium & school operational support included\n\nView prospectus, sample activity sheets & schedule: {{brochure_url}}\n\nKindly confirm your preferred date slot (Sep, Nov, or Dec 2026). Our TSM {{tsm_name}} (+91 84481 99842) is available for campus coordination.'
+    content: 'Dear {{coordinator_name}}, SilverZone Foundation announces the Little Star Olympiad 2026-27 for Nursery, LKG & UKG students at {{school_name}} (NEP 2020 ECCE aligned).\n\n⏰ DEADLINE EXTENSION: Registration date officially EXTENDED TILL 30th SEPTEMBER 2026!\n\n🎨 Exciting Participant Benefits:\n• Subjects: Mathematics, English, EVS, Hindi & Drawing (*New)\n• 🎁 Free Sketch Pens, Wax Crayons, Colour Pencils & Creative Kit for EVERY participating child!\n• Participation certificate for all + Medals for class toppers (>50%) & Distinction gifts (>75%)\n• Teacher coordinator honorarium & school operational support included\n\nView prospectus, sample activity sheets & schedule: {{brochure_url}}\n\nKindly confirm your preferred date slot (Sep, Nov, or Dec 2026). Our TSM {{tsm_name}} (+91 84481 99842) is available for campus coordination.'
   },
   {
     id: 'tmpl-sz-ext-urgent',
-    name: 'Urgent Principal Alert - Registration Deadline Extended (30/31 Sept)',
+    name: 'Urgent Principal Alert - Registration Deadline Extended (30th Sept)',
     category: 'URGENT_DEADLINE',
-    content: 'Respected {{principal_name}}, following requests from school heads in {{city}}, SilverZone Foundation has officially extended the Olympiad registration cutoff till 30th/31st SEPTEMBER 2026 for {{school_name}}.\n\n38+ schools in the {{area}} cluster have already locked their Olympiad dates. By confirming before 30th/31st September:\n1. Students compete for ₹7.4 Crore awards & ISRO space research educational visits\n2. Free participation for Specially-abled students & Defence martyrs\' children\n3. Outstanding Scholar Award (OSA): ₹5,000 scholarship + Trophy\n\nOfficial Brochure & Form: {{brochure_url}}\n\nCan we reserve student enrollment forms for {{school_name}}? You can reach TSM {{tsm_name}} directly at +91 84481 99842.'
+    content: 'Respected {{principal_name}}, following requests from school heads in {{city}}, SilverZone Foundation has officially extended the Olympiad registration cutoff till 30th SEPTEMBER 2026 for {{school_name}}.\n\n38+ schools in the {{area}} cluster have already locked their Olympiad dates. By confirming before 30th September:\n1. Students compete for ₹7.4 Crore awards & ISRO space research educational visits\n2. Free participation for Specially-abled students & Defence martyrs\' children\n3. Outstanding Scholar Award (OSA): ₹5,000 scholarship + Trophy\n\nOfficial Brochure & Form: {{brochure_url}}\n\nCan we reserve student enrollment forms for {{school_name}}? You can reach TSM {{tsm_name}} directly at +91 84481 99842.'
   },
   {
     id: 'tmpl-sz-ext-educators',
-    name: '18th Educators Achievement Awards & Udaan - Extended till 30/31 Sept',
+    name: '18th Educators Achievement Awards & Udaan - Extended till 30th Sept',
     category: 'EDUCATOR_RECOGNITION',
-    content: 'Dear {{principal_name}}, celebrating 25th Silver Jubilee, SilverZone Foundation invites {{school_name}} to nominate educators for the 18th Educators Achievement Awards (Best Principal: Cash Prize + Citation + Trophy; Best Teacher: Cash Prize + Trophy) and IMPACT Educationist of the Year Award.\n\n🕊️ Udaan Welfare Initiatives:\n• 100% FREE participation for teachers\' children in Maths & Science Olympiads\n• Free AI Olympiad (iAIO) entry for Economically Weaker Section (EWS) students\n• SGCS Girl Child Scholarship: ₹5,000 for 100 meritorious female students\n\nRegistration deadline extended till 30th/31st September 2026. View details: {{brochure_url}}\nTSM {{tsm_name}}: +91 84481 99842'
+    content: 'Dear {{principal_name}}, celebrating 25th Silver Jubilee, SilverZone Foundation invites {{school_name}} to nominate educators for the 18th Educators Achievement Awards (Best Principal: Cash Prize + Citation + Trophy; Best Teacher: Cash Prize + Trophy) and IMPACT Educationist of the Year Award.\n\n🕊️ Udaan Welfare Initiatives:\n• 100% FREE participation for teachers\' children in Maths & Science Olympiads\n• Free AI Olympiad (iAIO) entry for Economically Weaker Section (EWS) students\n• SGCS Girl Child Scholarship: ₹5,000 for 100 meritorious female students\n\nRegistration deadline extended till 30th September 2026. View details: {{brochure_url}}\nTSM {{tsm_name}}: +91 84481 99842'
   },
   {
     id: 'tmpl-sz-ext-realmetrics',
-    name: 'RealMetrics™ & AI Olympiad (iAIO) Launch - Extended to 30/31 Sept',
+    name: 'RealMetrics™ & AI Olympiad (iAIO) Launch - Extended to 30th Sept',
     category: 'AI_OLYMPIAD',
-    content: 'Respected {{principal_name}}, introduce cutting-edge technology to {{school_name}} students with SilverZone\'s new International Artificial Intelligence Olympiad (iAIO) and RealMetrics™ Olympiad Benchmarking Report for 2026-27.\n\n📅 Examination slots available across October, November & December 2026.\n📢 School registration has been extended till 30th/31st September 2026.\n\nRealMetrics™ provides your school management with class-wise cognitive strengths, national percentile rankings, and curriculum gap analysis. View the 2026-27 brochure here: {{brochure_url}}\nFor specimen books & kits, contact TSM {{tsm_name}} at +91 84481 99842.'
+    content: 'Respected {{principal_name}}, introduce cutting-edge technology to {{school_name}} students with SilverZone\'s new International Artificial Intelligence Olympiad (iAIO) and RealMetrics™ Olympiad Benchmarking Report for 2026-27.\n\n📅 Examination slots available across October, November & December 2026.\n📢 School registration has been extended till 30th September 2026.\n\nRealMetrics™ provides your school management with class-wise cognitive strengths, national percentile rankings, and curriculum gap analysis. View the 2026-27 brochure here: {{brochure_url}}\nFor specimen books & kits, contact TSM {{tsm_name}} at +91 84481 99842.'
   },
   {
     id: 'tmpl-1',
@@ -103,7 +103,7 @@ const DEFAULT_TEMPLATES: MessageTemplate[] = [
     id: 'tmpl-4',
     name: '5-Day Priority Follow-Up',
     category: 'FOLLOWUP_5D',
-    content: 'Dear {{principal_name}}, student registration for {{school_name}} is open under the extended deadline till 30th/31st September 2026. We have already onboarded 38+ CBSE schools in {{city}}. Would you like us to reserve student slots for {{school_name}}? Direct contact: TSM {{tsm_name}} (+91 84481 99842).'
+    content: 'Dear {{principal_name}}, student registration for {{school_name}} is open under the extended deadline till 30th September 2026. We have already onboarded 38+ CBSE schools in {{city}}. Would you like us to reserve student slots for {{school_name}}? Direct contact: TSM {{tsm_name}} (+91 84481 99842).'
   },
   {
     id: 'tmpl-5',
@@ -168,10 +168,10 @@ export class DataStore {
             tsmPhone: '+91 84481 99842',
             tsmEmail: 'swapnil@ipstudyhub.com',
             territoryName: 'Nagpur District',
-            registrationDeadline: '30th / 31st September 2026',
-            baseFee: 150,
+            registrationDeadline: '30th Sept 2026',
+            baseFee: 200,
             schoolRetentionPerStudent: 25,
-            littleStarFee: 175,
+            littleStarFee: 200,
             littleStarRetention: 25,
             booksPrice: 120,
             pyqpPrice: 120,
@@ -185,8 +185,10 @@ export class DataStore {
             updatedBy: 'System Init'
           };
         } else {
-          // Keep calculations mathematically accurate
-          parsed.settings.featureConfig.baseFee = parsed.settings.featureConfig.baseFee || 150;
+          // Standardize student fee to ₹200 and registration deadline to 30th Sept 2026 across brochure and app
+          parsed.settings.featureConfig.baseFee = 200;
+          parsed.settings.featureConfig.littleStarFee = 200;
+          parsed.settings.featureConfig.registrationDeadline = '30th Sept 2026';
           parsed.settings.featureConfig.schoolRetentionPerStudent = 25; // strictly ₹25 per student
           parsed.settings.featureConfig.littleStarRetention = 25;
           parsed.settings.featureConfig.pitchAmountInTemplates = false;
@@ -198,6 +200,17 @@ export class DataStore {
             parsed.settings.featureConfig.littleStarPdfUrl = 'https://service.silverzone.org/Files/demo/littlestar/Brochure_LittleStar_2026.pdf';
             parsed.settings.featureConfig.posterPdfUrl = 'https://service.silverzone.org/Files/demo/main/Poster_A2.pdf';
           }
+        }
+
+        // Align any existing school feeOverrides to ₹200 baseline if currently at old ₹150
+        if (Array.isArray(parsed.schools)) {
+          parsed.schools.forEach(s => {
+            if (s.feeOverride) {
+              if (s.feeOverride.baseFee === 150) s.feeOverride.baseFee = 200;
+              if (s.feeOverride.littleStarFee === 175) s.feeOverride.littleStarFee = 200;
+              if (s.feeOverride.schoolRetention !== 25) s.feeOverride.schoolRetention = 25;
+            }
+          });
         }
 
         parsed.settings.changeHistory = parsed.settings.changeHistory || [];
@@ -271,10 +284,10 @@ export class DataStore {
         tsmPhone: '+91 84481 99842',
         tsmEmail: 'swapnil@ipstudyhub.com',
         territoryName: 'Nagpur District',
-        registrationDeadline: '30th / 31st September 2026',
-        baseFee: 150,
+        registrationDeadline: '30th Sept 2026',
+        baseFee: 200,
         schoolRetentionPerStudent: 25,
-        littleStarFee: 175,
+        littleStarFee: 200,
         littleStarRetention: 25,
         booksPrice: 120,
         pyqpPrice: 120,
@@ -1229,10 +1242,10 @@ export class DataStore {
       tsmPhone: '+91 84481 99842',
       tsmEmail: 'swapnil@ipstudyhub.com',
       territoryName: 'Nagpur District',
-      registrationDeadline: '30th / 31st September 2026',
-      baseFee: 150,
+      registrationDeadline: '30th Sept 2026',
+      baseFee: 200,
       schoolRetentionPerStudent: 25,
-      littleStarFee: 175,
+      littleStarFee: 200,
       littleStarRetention: 25,
       booksPrice: 120,
       pyqpPrice: 120,
@@ -1432,9 +1445,9 @@ export class DataStore {
     if (!school) return null;
 
     const oldOverride = school.feeOverride || {
-      baseFee: 150,
+      baseFee: 200,
       schoolRetention: 25,
-      littleStarFee: 175,
+      littleStarFee: 200,
       littleStarRetention: 25
     };
 
@@ -1471,9 +1484,9 @@ export class DataStore {
       if (s) {
         s.feeOverride = {
           ...(s.feeOverride || {
-            baseFee: 150,
+            baseFee: 200,
             schoolRetention: 25,
-            littleStarFee: 175,
+            littleStarFee: 200,
             littleStarRetention: 25
           }),
           ...feeOverride

@@ -1130,8 +1130,8 @@ app.post('/api/ai/live-bot', async (req: Request, res: Response) => {
   // Parse deadline change
   if (lower.includes('deadline') || lower.includes('cutoff') || lower.includes('extend') || lower.includes('extension')) {
     const dateMatch = command.match(/(?:deadline|till|to|cutoff)\s*(?:is|to|=)?\s*([0-9a-zA-Z\s\/\.,-]+?)(?:\.|$|!)/i);
-    let newDate = dateMatch ? dateMatch[1].trim() : '30th / 31st September 2026';
-    if (newDate.length < 5) newDate = '30th / 31st September 2026';
+    let newDate = dateMatch ? dateMatch[1].trim() : '30th Sept 2026';
+    if (newDate.length < 5) newDate = '30th Sept 2026';
     const result = db.updateFeatureConfig(
       { registrationDeadline: newDate, showExtensionNotice: true },
       'AI Bot',
@@ -1532,13 +1532,13 @@ app.get(['/share/brochure/:token', '/share/p/:token'], (req: Request, res: Respo
   const tsmName = featureConfig.tsmName || 'Swapnil';
   const tsmPhone = featureConfig.tsmPhone || '+91 84481 99842';
   const cleanPhone = tsmPhone.replace(/[^\d]/g, '');
-  const baseFee = featureConfig.baseFee || 150;
+  const baseFee = featureConfig.baseFee || 200;
   const schoolRetention = featureConfig.schoolRetentionPerStudent || 25;
-  const foundationShare = baseFee - schoolRetention; // 125
-  const littleStarFee = featureConfig.littleStarFee || 175;
+  const foundationShare = baseFee - schoolRetention; // 175
+  const littleStarFee = featureConfig.littleStarFee || 200;
   const littleStarRetention = featureConfig.littleStarRetention || 25;
-  const littleStarFoundation = littleStarFee - littleStarRetention; // 150
-  const deadline = featureConfig.registrationDeadline || '30th / 31st September 2026';
+  const littleStarFoundation = littleStarFee - littleStarRetention; // 175
+  const deadline = featureConfig.registrationDeadline || '30th Sept 2026';
   const booksPrice = featureConfig.booksPrice || 120;
   const officialPdfUrl = featureConfig.officialBrochurePdfUrl || 'https://service.silverzone.org/Files/demo/main/School_Brochure_Thin_2026.pdf';
   const littleStarPdfUrl = featureConfig.littleStarPdfUrl || 'https://service.silverzone.org/Files/demo/littlestar/Brochure_LittleStar_2026.pdf';
@@ -1965,7 +1965,7 @@ app.get(['/share/brochure/:token', '/share/p/:token'], (req: Request, res: Respo
         <div class="calc-results-grid">
           <div class="calc-res-box">
             <div class="calc-res-lbl">Total Student Fee Collected</div>
-            <div class="calc-res-val" id="resTotalFee">₹30,000</div>
+            <div class="calc-res-val" id="resTotalFee">₹40,000</div>
             <div class="calc-res-sub">@ ₹${baseFee} per student (Class 1-12)</div>
           </div>
           <div class="calc-res-box highlight">
@@ -1975,7 +1975,7 @@ app.get(['/share/brochure/:token', '/share/p/:token'], (req: Request, res: Respo
           </div>
           <div class="calc-res-box">
             <div class="calc-res-lbl">Net Remittance to Foundation</div>
-            <div class="calc-res-val" id="resFoundationRemitted">₹25,000</div>
+            <div class="calc-res-val" id="resFoundationRemitted">₹35,000</div>
             <div class="calc-res-sub">Payable to SilverZone (@ ₹${foundationShare}/student)</div>
           </div>
         </div>

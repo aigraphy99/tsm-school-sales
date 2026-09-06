@@ -18,9 +18,9 @@ export interface LiveFeatureConfig {
   tsmEmail: string;
   territoryName: string;
   registrationDeadline: string;
-  baseFee: number; // ₹150 base fee per student
+  baseFee: number; // ₹200 base fee per student
   schoolRetentionPerStudent: number; // ₹25 per student retained by school
-  littleStarFee: number; // ₹175 per child
+  littleStarFee: number; // ₹200 per child
   littleStarRetention: number; // ₹25 per child
   booksPrice: number; // ₹120 per book
   pyqpPrice: number; // ₹120 per book

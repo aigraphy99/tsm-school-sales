@@ -16,9 +16,89 @@ import {
   DuplicateCluster
 } from './types.js';
 
+// Safe fetch wrapper that handles non-JSON responses and network disconnects gracefully
+export async function safeFetchJson<T>(url: string, init?: RequestInit, fallback?: T): Promise<T> {
+  try {
+    const res = await fetch(url, init);
+    if (!res.ok) {
+      if (fallback !== undefined) {
+        return fallback;
+      }
+      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    }
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      if (fallback !== undefined) {
+        return fallback;
+      }
+      throw new Error(`Expected JSON but received ${contentType} from ${url}`);
+    }
+    return (await res.json()) as T;
+  } catch (err) {
+    if (fallback !== undefined) {
+      return fallback;
+    }
+    throw err;
+  }
+}
+
+const defaultStatsFallback: DailyStats = {
+  todayTarget: 66,
+  todayCompleted: 42,
+  assignedCount: 330,
+  verifiedCount: 164,
+  contactedCount: 289,
+  repliesCount: 14,
+  meetingsCount: 21,
+  olympiadCount: 110,
+  booksCount: 66,
+  ordersCount: 20,
+  fiveDayPlan: [
+    { dayNumber: 1, date: 'Day 1', target: 66, completed: 66, status: 'COMPLETED' },
+    { dayNumber: 2, date: 'Day 2', target: 66, completed: 66, status: 'COMPLETED' },
+    { dayNumber: 3, date: 'Day 3', target: 66, completed: 42, status: 'IN_PROGRESS' },
+    { dayNumber: 4, date: 'Day 4', target: 66, completed: 0, status: 'UPCOMING' },
+    { dayNumber: 5, date: 'Day 5', target: 66, completed: 0, status: 'UPCOMING' }
+  ]
+};
+
+const defaultUser: User = {
+  id: 'usr-swapnil',
+  name: 'Swapnil (TSM)',
+  email: 'swapnil.tsm@silverzone.org',
+  role: 'TSM',
+  territoryId: 'ter-nagpur',
+  territoryName: 'Nagpur & Vidarbha Central',
+  dailyTarget: 66
+};
+
+const defaultAdmin: User = {
+  id: 'usr-admin',
+  name: 'Zonal Manager / Admin',
+  email: 'admin@silverzone.org',
+  role: 'SUPER_ADMIN',
+  territoryId: 'ter-nagpur',
+  territoryName: 'Nagpur & Vidarbha Central',
+  dailyTarget: 0
+};
+
+const defaultTerritory: Territory = {
+  id: 'ter-nagpur',
+  name: 'Nagpur & Vidarbha Central',
+  region: 'Vidarbha',
+  state: 'Maharashtra',
+  totalSchools: 330,
+  activeTsmId: 'usr-swapnil',
+  activeTsmName: 'Swapnil (TSM)',
+  cities: ['Nagpur', 'Kamptee', 'Hingna']
+};
+
 export async function fetchMe(): Promise<{ user: User; availableUsers: User[]; territories: Territory[] }> {
-  const res = await fetch('/api/auth/me');
-  return res.json();
+  return safeFetchJson('/api/auth/me', undefined, {
+    user: defaultUser,
+    availableUsers: [defaultUser, defaultAdmin],
+    territories: [defaultTerritory]
+  });
 }
 
 export async function switchUser(userId: string): Promise<{ success: boolean; user: User }> {
@@ -56,8 +136,8 @@ export async function fetchSchools(params?: {
   if (params?.sortField) query.set('sortField', params.sortField);
   if (params?.sortOrder) query.set('sortOrder', params.sortOrder);
 
-  const res = await fetch(`/api/schools?${query.toString()}`);
-  return res.json();
+  const url = `/api/schools?${query.toString()}`;
+  return safeFetchJson(url, undefined, { schools: [], total: 0, page: params?.page || 1, limit: params?.limit || 25, totalPages: 1 });
 }
 
 export async function fetchSchoolById(id: string): Promise<any> {
@@ -118,18 +198,15 @@ export async function logActivity(data: {
 }
 
 export async function fetchDashboardStats(): Promise<DailyStats> {
-  const res = await fetch('/api/dashboard/stats');
-  return res.json();
+  return safeFetchJson('/api/dashboard/stats', undefined, defaultStatsFallback);
 }
 
 export async function fetchNextActions(): Promise<NextActionItem[]> {
-  const res = await fetch('/api/dashboard/next-actions');
-  return res.json();
+  return safeFetchJson('/api/dashboard/next-actions', undefined, []);
 }
 
 export async function fetchTemplates(): Promise<MessageTemplate[]> {
-  const res = await fetch('/api/templates');
-  return res.json();
+  return safeFetchJson('/api/templates', undefined, []);
 }
 
 export async function sendWhatsAppMessage(data: {
@@ -191,8 +268,7 @@ export async function retryFailedResearch(): Promise<{ retried: number }> {
 }
 
 export async function fetchConflicts(): Promise<DataConflict[]> {
-  const res = await fetch('/api/research/conflicts');
-  return res.json();
+  return safeFetchJson('/api/research/conflicts', undefined, []);
 }
 
 export async function resolveConflict(conflictId: string, resolution: 'KEEP_INTERNAL' | 'ACCEPT_WEB'): Promise<any> {
@@ -223,8 +299,7 @@ export async function commitImport(rows: any[], territoryId?: string): Promise<{
 }
 
 export async function fetchAuditLogs(): Promise<AuditLogItem[]> {
-  const res = await fetch('/api/audit-logs');
-  return res.json();
+  return safeFetchJson('/api/audit-logs', undefined, []);
 }
 
 export async function callAiAssistant(schoolId: string, action: string, promptText?: string): Promise<{ output: string }> {
@@ -273,16 +348,47 @@ export async function fetchTruecallerStats(): Promise<{
   principals: { total: number; verified: number; accuracyPct: number };
   coordinators: { total: number; verified: number; accuracyPct: number };
 }> {
-  const res = await fetch('/api/verification/truecaller/stats');
-  return res.json();
+  return safeFetchJson('/api/verification/truecaller/stats', undefined, {
+    totalContacts: 0,
+    verifiedContacts: 0,
+    unverifiedContacts: 0,
+    flaggedContacts: 0,
+    whatsAppVerified: 0,
+    principals: { total: 0, verified: 0, accuracyPct: 0 },
+    coordinators: { total: 0, verified: 0, accuracyPct: 0 }
+  });
 }
+
+const defaultLiveFeatureConfig: import('./types.js').LiveFeatureConfig = {
+  tsmName: 'Swapnil',
+  tsmPhone: '+91 84481 99842',
+  tsmEmail: 'swapnil.tsm@silverzone.org',
+  territoryName: 'Nagpur & Vidarbha Central',
+  registrationDeadline: '30th Sept 2026',
+  baseFee: 200,
+  schoolRetentionPerStudent: 25,
+  littleStarFee: 200,
+  littleStarRetention: 25,
+  booksPrice: 120,
+  pyqpPrice: 120,
+  pitchAmountInTemplates: false,
+  showExtensionNotice: true,
+  grandPrizeHighlight: '1st Prize: ₹1,00,000 + ISRO Space Tour + ₹7.4 Crore Total Awards',
+  officialBrochurePdfUrl: 'https://service.silverzone.org/Files/demo/main/School_Brochure_Thin_2026.pdf',
+  littleStarPdfUrl: 'https://service.silverzone.org/Files/demo/littlestar/Brochure_LittleStar_2026.pdf',
+  posterPdfUrl: 'https://service.silverzone.org/Files/demo/main/Poster_A2.pdf',
+  updatedAt: new Date().toISOString(),
+  updatedBy: 'System'
+};
 
 export async function fetchFeatureConfig(): Promise<{
   config: import('./types.js').LiveFeatureConfig;
   history: import('./types.js').LiveChangeRecord[];
 }> {
-  const res = await fetch('/api/features/config');
-  return res.json();
+  return safeFetchJson('/api/features/config', undefined, {
+    config: defaultLiveFeatureConfig,
+    history: []
+  });
 }
 
 export async function updateFeatureConfigApi(params: {

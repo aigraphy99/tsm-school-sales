@@ -65,9 +65,9 @@ export const AdminMasterPanel: React.FC<AdminMasterPanelProps> = ({ onRefreshAll
   // Single Fee Edit State
   const [editingFeeSchool, setEditingFeeSchool] = useState<School | null>(null);
   const [feeFormData, setFeeFormData] = useState({
-    baseFee: 150,
+    baseFee: 200,
     schoolRetention: 25,
-    littleStarFee: 175,
+    littleStarFee: 200,
     littleStarRetention: 25,
     notes: ''
   });
@@ -75,9 +75,9 @@ export const AdminMasterPanel: React.FC<AdminMasterPanelProps> = ({ onRefreshAll
   // Batch Fee Modal State
   const [batchFeeModalOpen, setBatchFeeModalOpen] = useState<boolean>(false);
   const [batchFeeData, setBatchFeeData] = useState({
-    baseFee: 150,
+    baseFee: 200,
     schoolRetention: 25,
-    littleStarFee: 175,
+    littleStarFee: 200,
     littleStarRetention: 25,
     notes: 'Batch adjusted for Nagpur cluster'
   });
@@ -466,9 +466,9 @@ export const AdminMasterPanel: React.FC<AdminMasterPanelProps> = ({ onRefreshAll
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
                   {filteredSchools.slice(0, 50).map(school => {
-                    const baseFee = school.feeOverride?.baseFee ?? featureConfig?.baseFee ?? 150;
+                    const baseFee = school.feeOverride?.baseFee ?? featureConfig?.baseFee ?? 200;
                     const retention = school.feeOverride?.schoolRetention ?? featureConfig?.schoolRetentionPerStudent ?? 25;
-                    const littleStarFee = school.feeOverride?.littleStarFee ?? featureConfig?.littleStarFee ?? 175;
+                    const littleStarFee = school.feeOverride?.littleStarFee ?? featureConfig?.littleStarFee ?? 200;
                     const netRemit = baseFee - retention;
                     const isCustom = !!school.feeOverride;
                     const isSelected = selectedSchools.includes(school.id);

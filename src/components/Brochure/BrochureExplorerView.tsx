@@ -46,10 +46,10 @@ export const BrochureExplorerView: React.FC<BrochureExplorerViewProps> = ({
   }, []);
 
   const retention = config?.schoolRetentionPerStudent || 25;
-  const baseFee = config?.baseFee || 150;
+  const baseFee = config?.baseFee || 200;
   const tsmName = config?.tsmName || 'Swapnil';
   const tsmPhone = config?.tsmPhone || '+91 84481 99842';
-  const deadline = config?.registrationDeadline || '30th / 31st September 2026';
+  const deadline = config?.registrationDeadline || '30th Sept 2026';
 
   const selectedSchool = schools.find((s) => s.id === selectedSchoolId) || schools[0];
   const schoolName = selectedSchool?.name || 'Selected School';
@@ -100,7 +100,7 @@ export const BrochureExplorerView: React.FC<BrochureExplorerViewProps> = ({
               </span>
             </div>
             <h1 className="text-lg md:text-xl font-black tracking-tight flex items-center space-x-2">
-              <span>📢 Registration Date Extended Till 30th / 31st September 2026!</span>
+              <span>📢 Registration Date Extended Till 30th Sept 2026!</span>
             </h1>
             <p className="text-xs text-red-100 max-w-3xl leading-relaxed">
               In response to official requests from school principals and academic coordinators across Nagpur & nationwide, SilverZone Foundation has officially extended the registration cutoff for all 12 Olympiads and the Little Star Olympiad.
@@ -338,9 +338,9 @@ export const BrochureExplorerView: React.FC<BrochureExplorerViewProps> = ({
             <div className="bg-white border border-gray-200 rounded-xl p-4 space-y-2">
               <h4 className="text-xs font-bold uppercase text-gray-900">Fee Structure & Honorarium</h4>
               <div className="text-xs space-y-1.5">
-                <div>Participation Fee: <strong className="font-mono text-sm">₹175</strong> per child</div>
+                <div>Participation Fee: <strong className="font-mono text-sm">₹{config?.littleStarFee || 200}</strong> per child</div>
                 <div className="text-emerald-700 font-bold">School Retention: +₹25 per child for teacher honorarium</div>
-                <div className="text-red-700 font-bold">Registration Extended Till: 30th/31st September 2026</div>
+                <div className="text-red-700 font-bold">Registration Extended Till: 30th Sept 2026</div>
               </div>
             </div>
           </div>
@@ -431,9 +431,9 @@ export const BrochureExplorerView: React.FC<BrochureExplorerViewProps> = ({
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold">Little Star (Pre-Primary Nursery, LKG, UKG)</td>
-                  <td className="p-3 font-mono font-bold">₹175</td>
+                  <td className="p-3 font-mono font-bold">₹{config?.littleStarFee || 200}</td>
                   <td className="p-3 font-mono font-bold text-emerald-700">+₹{retention} / student</td>
-                  <td className="p-3 font-mono font-bold text-gray-800">₹150 (Includes 4 Art Kits)</td>
+                  <td className="p-3 font-mono font-bold text-gray-800">₹{(config?.littleStarFee || 200) - retention} (Includes 4 Art Kits)</td>
                 </tr>
                 <tr className="bg-emerald-50/60 font-bold text-emerald-950">
                   <td className="p-3">Specially-Abled Students & Defence Martyrs' Children</td>

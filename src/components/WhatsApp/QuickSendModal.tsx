@@ -128,7 +128,7 @@ export const QuickSendModal: React.FC<QuickSendModalProps> = ({
         <div className="p-2.5 rounded-md bg-rose-50 border border-rose-200 text-xs flex items-center justify-between">
           <div className="space-y-0.5">
             <div className="font-extrabold text-rose-900 flex items-center space-x-1">
-              <span>📢 Registration Extended Till 30th/31st Sept 2026</span>
+              <span>📢 Registration Extended Till 30th Sept 2026</span>
             </div>
             <div className="text-[11px] text-rose-700">
               12 Olympiads + Little Star. Includes ISRO Educational Tour & ₹7.4 Cr awards.

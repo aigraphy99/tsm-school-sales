@@ -54,10 +54,10 @@ export const BrochureViewerModal: React.FC<BrochureViewerModalProps> = ({
   if (!isOpen) return null;
 
   const retention = config?.schoolRetentionPerStudent || 25;
-  const baseFee = config?.baseFee || 150;
+  const baseFee = config?.baseFee || 200;
   const tsmName = config?.tsmName || 'Swapnil';
   const tsmPhone = config?.tsmPhone || '+91 84481 99842';
-  const deadline = config?.registrationDeadline || '30th / 31st September 2026';
+  const deadline = config?.registrationDeadline || '30th Sept 2026';
 
   const brochureUrl = targetSchoolId
     ? `${window.location.origin}/share/brochure/${targetSchoolId}`
@@ -84,7 +84,7 @@ export const BrochureViewerModal: React.FC<BrochureViewerModalProps> = ({
                   SilverZone Foundation (25th Silver Jubilee)
                 </span>
                 <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-extrabold uppercase">
-                  Extended to 30/31 Sept
+                  Extended to 30th Sept
                 </span>
               </div>
               <h2 className="text-base font-extrabold tracking-tight text-white mt-0.5">
@@ -114,7 +114,7 @@ export const BrochureViewerModal: React.FC<BrochureViewerModalProps> = ({
           <div className="flex items-center space-x-2.5">
             <AlertCircle className="w-4 h-4 text-amber-300 shrink-0" />
             <span className="text-xs font-bold">
-              📢 Official Notification: Registration Date Officially Extended Till <span className="underline decoration-amber-300 font-black">30th / 31st September 2026</span>
+              📢 Official Notification: Registration Date Officially Extended Till <span className="underline decoration-amber-300 font-black">30th Sept 2026</span>
             </span>
           </div>
           <span className="text-[11px] bg-red-800/80 border border-red-400/40 px-2.5 py-0.5 rounded-full font-mono font-medium self-start sm:self-auto">
@@ -293,9 +293,9 @@ export const BrochureViewerModal: React.FC<BrochureViewerModalProps> = ({
                 <div className="p-3 rounded-lg border border-gray-200 bg-white">
                   <div className="font-bold text-gray-900 mb-1">Fee & Honorarium:</div>
                   <div className="text-gray-700 space-y-1">
-                    <div>Participation Fee: <strong className="font-mono">₹175</strong> per child</div>
+                    <div>Participation Fee: <strong className="font-mono">₹{config?.littleStarFee || 200}</strong> per child</div>
                     <div className="text-emerald-700 font-bold">School Honorarium: <strong>+₹25</strong> retained by school</div>
-                    <div className="text-rose-700 font-bold mt-2">Registration Extended till: <strong>30/31 September 2026</strong></div>
+                    <div className="text-rose-700 font-bold mt-2">Registration Extended till: <strong>30th Sept 2026</strong></div>
                   </div>
                 </div>
               </div>
@@ -386,9 +386,9 @@ export const BrochureViewerModal: React.FC<BrochureViewerModalProps> = ({
                     </tr>
                     <tr>
                       <td className="p-2.5 font-medium">Little Star (Pre-Primary Nursery, LKG, UKG)</td>
-                      <td className="p-2.5 font-mono font-bold">₹175</td>
+                      <td className="p-2.5 font-mono font-bold">₹{config?.littleStarFee || 200}</td>
                       <td className="p-2.5 font-mono font-bold text-emerald-700">+₹{retention} / student</td>
-                      <td className="p-2.5 font-mono font-bold text-gray-800">₹150 (Includes 4 Art Kits)</td>
+                      <td className="p-2.5 font-mono font-bold text-gray-800">₹{(config?.littleStarFee || 200) - retention} (Includes 4 Art Kits)</td>
                     </tr>
                     <tr className="bg-emerald-50/50">
                       <td className="p-2.5 font-bold text-emerald-900">Specially-Abled Students & Defence Martyrs' Children</td>

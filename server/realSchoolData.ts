@@ -1093,9 +1093,9 @@ export function buildRealMasterSchools(): { schools: School[]; contacts: Contact
       lastYearReg: raw.lastYearReg,
       currentYearReg: raw.currentYearReg,
       feeOverride: {
-        baseFee: 150,
+        baseFee: 200,
         schoolRetention: 25,
-        littleStarFee: 175,
+        littleStarFee: 200,
         littleStarRetention: 25
       },
       webVerification: {
